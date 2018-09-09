@@ -17,13 +17,12 @@ pipeline {
 			}
 		}
 
-		/*stage('Build/Test/SonarScan') {
+		stage('Build/Test/SonarScan') {
 			steps {
-				def sonar_proj_name=4182_GDP_Finance
-				echo 'Build/Test/SonarScan'
-				bat 'mvn --settings C:\\.m2\\FCA\settings.xml clean verify sonar:sonar -p1 !GDPFinanceear'
+				echo 'Build/Test'
+				bat 'mvn clean package !fileear'
 			}
-		}*/
+		}
 
 		stage('Publish TestResults') {
 			steps {

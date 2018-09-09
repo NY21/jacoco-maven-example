@@ -28,9 +28,9 @@ pipeline {
 		stage('Publish TestResults') {
 			steps {
 				echo 'Publish Test Results'
-				step([$class: 'JUnitResultArchiver', testResults: '**/target/reports/TEST-*.xml'])
+				step([$class: 'JUnitResultArchiver', testResults: 'target/jacoco-ut/TEST-*.xml'])
 				//step([$class: 'JUnitResultArchiver', testResults: 'reports/junit/appJunitTest.xml'])
-				publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'reports/jacoco', reportFiles: 'index.html', reportName: 'Jacoco Report', reportTitles: 'Jacoco Report'])
+				publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/jacoco-ut', reportFiles: 'index.html', reportName: 'Jacoco Report', reportTitles: 'Jacoco Report'])
 			}
 		}
 
